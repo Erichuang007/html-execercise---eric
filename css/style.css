@@ -7,8 +7,8 @@
   --color-headings: #1b0760;
   --color-body: #918ca4;
 }
-
-/* FONT SET */
+/* accent强调 */
+/* typegraphy SET */
 html {
   font-size: 62.5%;
 }
@@ -41,7 +41,10 @@ p {
   margin-top: 0;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
+  .link-arrow {
+    font-size: 1.5rem;
+  }
   body {
     font-size: 1.8rem;
   }
@@ -53,5 +56,31 @@ p {
   }
   h3 {
     font-size: 2.4rem;
+  }
+}
+
+/* Links set */
+
+a {
+  text-decoration: none;
+}
+.link-arrow {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.link-arrow::after {
+  content: "-->";
+  margin-left: 5px;
+  transition: margin 0.15s;
+}
+.link-arrow:hover::after {
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .link-arrow {
+    font-size: 1.5rem;
   }
 }
