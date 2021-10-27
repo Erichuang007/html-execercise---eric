@@ -1,3 +1,8 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 /* COLOR SET */
 
 :root {
@@ -170,14 +175,67 @@ a {
   align-items: center;
 }
 
-/* INPUT */
+/* BUTTON */
+
 .btn {
-  border: 3px solid var(--color-accent);
-  border-radius: var(--border-radius);
-  background-color: var(--color-accent);
+  border-radius: 40px;
+  border: 0;
   color: white;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  padding: 2rem 3rem;
+  text-align: center;
   text-transform: uppercase;
+  white-space: nowrap;
 }
+
+.btn--primary {
+  background: var(--color-primary);
+}
+.btn--primary:hover {
+  background: #3a8ffd;
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+}
+
+.btn--secondary:hover {
+  background: #00c8eb;
+}
+
+.btn--accent {
+  background: var(--color-accent);
+}
+
+.btn--accent:hover {
+  background: #ec3000;
+}
+
+.btn--outline {
+  background: #fff;
+  color: var(--color-headings);
+  border: 2px solid var(--color-headings);
+}
+
+.btn--outline:hover {
+  background: var(--color-headings);
+  color: white;
+}
+
+.btn--block {
+  width: 100%;
+  display: inline-block;
+}
+
+@media screen and (min-width: 1024px) {
+  .btn {
+    font-size: 1.5rem;
+  }
+}
+/* INPUT */
 
 .input {
   border-radius: var(--border-radius);
@@ -212,4 +270,26 @@ a {
   .input {
     font-size: 1.5rem;
   }
+}
+
+/* CARD */
+.card {
+  border-radius: 7px;
+  box-shadow: 0 0 20px 10px #f3f3f3;
+  overflow: hidden;
+}
+
+.card__header,
+.card__body {
+  padding: 2rem 3rem;
+}
+
+.card--primary .card__header {
+  background: var(--color-primary);
+  color: white;
+}
+
+.card--secondary .card__header {
+  background: var(--color-secondary);
+  color: white;
 }
