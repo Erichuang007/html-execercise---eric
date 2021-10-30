@@ -11,6 +11,7 @@
   --color-accent: #ff3400;
   --color-headings: #1b0760;
   --color-body: #918ca4;
+  --color-body-darker: #5c5577;
   --color-border: #ccc;
   --border-radius: 30px;
 }
@@ -22,6 +23,7 @@ html {
 
 body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-display: auto;
   color: var(--color-body);
   font-size: 2.4rem;
   line-height: 1.5;
@@ -161,12 +163,21 @@ a {
   height: 50px;
 }
 
+.icon--small {
+  width: 40px;
+  height: 40px;
+}
+
 .icon--primary {
   fill: var(--color-primary);
 }
 
+.icon--white {
+  fill: white;
+}
+
 .icon-container {
-  background: #f3f9fa;
+  /* background: #f3f9fa; */
   width: 64px;
   height: 64px;
   border-radius: 100%;
@@ -175,6 +186,10 @@ a {
   align-items: center;
 }
 
+.icon-container--accent {
+  /* border-radius: 100%; */
+  background: var(--color-accent);
+}
 /* BUTTON */
 
 .btn {
@@ -223,6 +238,11 @@ a {
 .btn--outline:hover {
   background: var(--color-headings);
   color: white;
+}
+
+.btn--stretched {
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 
 .btn--block {
@@ -292,4 +312,249 @@ a {
 .card--secondary .card__header {
   background: var(--color-secondary);
   color: white;
+}
+/* media */
+.media {
+  display: flex;
+}
+
+.media__title {
+  margin-top: 0;
+  margin-left: 2rem;
+}
+.media__body {
+  margin: 0 2rem;
+}
+
+.media__image {
+  margin-top: 1rem;
+}
+
+/* quote */
+
+.quote {
+  font-size: 3rem;
+  font-style: italic;
+  color: var(--color-body-darker);
+  line-height: 1.3;
+}
+
+.quote__text:before {
+  content: open-quote;
+}
+
+.quote__text:after {
+  content: close-quote;
+}
+
+.quote__author {
+  font-size: 3rem;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.quote__organization {
+  color: var(--color-headings);
+  opacity: 0.4;
+  font-size: 2rem;
+  font-style: normal;
+  margin-left: 2rem;
+}
+
+.quote__line {
+  position: relative;
+  bottom: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .quote {
+    font-size: 2rem;
+  }
+  .quote__author {
+    font-size: 2.4rem;
+  }
+
+  .quote__organization {
+    font-size: 1.4rem;
+  }
+}
+
+/* grid */
+.grid {
+  display: grid;
+}
+
+@media screen and (min-width: 768px) {
+  .grid--1x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .grid--1x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* testimonials */
+.testimonial {
+  padding: 3rem;
+}
+.testimonial__image {
+  position: relative;
+}
+.testimonial__image > img {
+  width: 100%;
+}
+.testimonial__image > .icon-container {
+  position: absolute;
+  top: 3rem;
+  right: -32px;
+}
+
+@media screen and (min-width: 768px) {
+  .testimonial .quote,
+  .testimonial .quote__author {
+    font-size: 2.4rem;
+  }
+  .testimonial .quote {
+    margin-left: 6rem;
+  }
+}
+
+/* callout */
+.callout {
+  padding: 4rem;
+  border-radius: 5px;
+}
+.callout--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.callout__heading {
+  margin-top: 0;
+  color: #fff;
+  font-size: 3rem;
+}
+
+.callout .btn {
+  justify-self: center;
+  align-self: center;
+}
+
+.callout__content {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .callout .grid--1x2 {
+    grid-template-columns: 1fr auto;
+  }
+
+  .callout__content {
+    text-align: left;
+  }
+  .callout .btn {
+    justify-self: start;
+    margin-left: 2rem;
+  }
+}
+
+/* collapsible 可折叠的 */
+.collapsible__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collapsible__heading {
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+.collapsible__chevron {
+  transform: rotate(-45deg);
+  transition: transform 0.3s;
+}
+
+.collapsible__content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.collapsible--expanded .collapsible__chevron {
+  transform: rotate(0);
+}
+
+.collapsible--expanded .collapsible__content {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+/* Navigation Bar */
+.nav {
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  padding: 0 1rem;
+  align-items: center;
+}
+
+.nav__list {
+  width: 100%;
+  margin: 0;
+  /* display: none; */
+}
+
+.nav__item {
+  padding: 0rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+.nav__item > a {
+  color: #d2d0db;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.nav__item > a:hover {
+  color: white;
+}
+
+.nav__toggler {
+  opacity: 0.5;
+  transition: box-shadow 0.5s;
+  cursor: pointer;
+}
+
+.nav.collapsible--expanded .nav__toggler {
+  opacity: 1;
+  box-shadow: 0 0 0 2px #666;
+  border-radius: 1px;
+}
+
+.nav__brand {
+  transform: translateY(5px);
+}
+
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none;
+  }
+
+  .nav__list {
+    width: auto;
+    display: flex;
+    font-size: 1.6rem;
+    /* 如果最开始是没有expanded 且 opacity:0，需要设置如下才能显示出来 */
+    max-height: 100%;
+    opacity: 1;
+  }
+
+  .nav__item {
+    border: 0;
+  }
 }
